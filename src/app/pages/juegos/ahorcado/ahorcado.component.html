@@ -1,0 +1,25 @@
+<body>
+    <h1>AHORCADO</h1>
+    <div class="ahorcado">
+        <div class="contenedor-imagen">
+            <img src="../../../../assets/ahorcado{{errores}}.png" class="imagen-ahorcado">
+        </div>
+        <div class="juego">
+            <div class="palabra">
+                <span>{{guionesBajos}}</span>
+            </div>
+            <div id="botones" class="botones-letras">
+                <button *ngFor="let letra of letras" (click)="verificarLetraEnPalabra(letra)">{{letra}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <img [src]="imagenResultado">
+        <h2>{{resultado}}</h2>
+        <div class="botones-popup">
+            <button (click)="reiniciarJuego()">Volver a jugar</button>
+            <button routerLink="..">Menú de juegos</button>
+        </div>
+    </div>
+</body>
+

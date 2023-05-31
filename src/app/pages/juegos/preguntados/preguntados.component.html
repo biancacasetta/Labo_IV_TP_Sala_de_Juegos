@@ -1,0 +1,28 @@
+<body>
+    <h1>PREGUNTADOS</h1>
+    <div class="preguntados">
+        <div class="pokemon">
+            <img class="imagen-pokemon" [src]="rutaImagenPokemon">
+        </div>
+        <div class="juego">
+            <div class="pregunta">¿Quién es ese pokemón?</div>
+            <div class="botones">
+                <button class="opcion-pokemon" *ngFor="let pokemon of pokemonesBoton" (click)="verificarRespuesta(pokemon)">
+                    {{pokemon}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="puntaje">
+        <p>Puntos: {{puntos}}</p>
+        <p>{{desaciertos}}/10 fallos</p>
+    </div>
+    <div class="popup" id="popup">
+        <img src="../../../../assets/game-over.png">
+        <h2>¡Ya no tenés más fallos!</h2>
+        <span>Tu puntaje final: {{puntos}}</span>
+        <div class="botones-popup">
+            <button (click)="reiniciarJuego()">Volver a jugar</button>
+            <button routerLink="..">Menú de juegos</button>
+        </div>
+    </div>
+</body>

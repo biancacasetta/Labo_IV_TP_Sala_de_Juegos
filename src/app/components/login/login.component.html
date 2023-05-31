@@ -1,0 +1,15 @@
+<div class="login">
+    <form>
+        <label aria-hidden="true">Iniciá sesión</label>
+        <input type="email" name="email" placeholder="Correo electrónico" required [(ngModel)]="email">
+        <input type="password" name="pswd" placeholder="Contraseña" required [(ngModel)]="password">
+        <button (click)="login()">Iniciar sesión</button>
+        <div class="accesos-rapidos">
+            <p>o accedé como</p>
+            <div class="botones-accesos">
+                <button (click)="insertarUsuario('invitado')">Invitado</button>
+                <button (click)="insertarUsuario('administrador')">Administrador</button>
+            </div>
+        </div>
+    </form>
+</div>

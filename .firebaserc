@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tpslaboratorioiv": {
+      "hosting": {
+        "TPSalaDeJuegos": [
+          "tpslaboratorioiv"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tpslaboratorioiv"
+  }
+}

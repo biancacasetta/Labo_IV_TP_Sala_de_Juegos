@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Megrim&family=Play:wght@700&family=Special+Elite&family=Ultra&family=Walter+Turncoat&display=swap');
+
+body
+{
+    min-height: 100vh;
+    background-image: url("https://images2.alphacoders.com/118/1184993.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    flex-wrap: nowrap;
+    font-family: 'Bungee', cursive;
+    width: 100%;
+    color: white;
+}
+
+.quien-soy
+{
+    position: relative;
+    width: 30%;
+    height: 60%;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+}
+
+.quien-soy .contenido
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5vh;
+    padding-bottom: 10vh;
+    transform: translateY(0);
+    transition: 0.5s;
+}
+
+.imagen-perfil
+{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid rgba(0, 0, 0, 0.25);
+}
+
+.imagen-perfil img
+{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.datos-personales
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1
+{
+    text-align: center;
+    margin: 10px 0 0 0;
+}
+
+span
+{
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+}
+
+h3
+{
+    margin: 10px 0;
+}
+
+p
+{
+    text-align: justify;
+}
+
+.quien-soy .contenido .redes-sociales
+{
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    padding: 0;
+}
+
+.redes-sociales li
+{
+    list-style: none;
+    margin: 0 10px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+}
+
+.redes-sociales li a
+{
+    color: white;
+    font-size: 50px;
+}
+
+.quien-soy .contenido:hover .redes-sociales li
+{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.quien-soy .contenido:hover
+{
+    transform: translateY(-20px);
+}

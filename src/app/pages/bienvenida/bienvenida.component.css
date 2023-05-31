@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Megrim&family=Play:wght@700&family=Special+Elite&family=Ultra&family=Walter+Turncoat&display=swap');
+
+body
+{
+    min-height: 100vh;
+    background-image: url("https://images2.alphacoders.com/118/1184993.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    flex-wrap: nowrap;
+    font-family: 'Bungee', cursive;
+    width: 100%;
+}
+
+h1
+{
+    color: white;
+}

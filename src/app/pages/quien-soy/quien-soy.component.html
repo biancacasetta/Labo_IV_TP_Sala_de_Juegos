@@ -1,0 +1,23 @@
+<body *ngIf="miPerfil">
+    <div class="quien-soy">
+        <div class="contenido">
+            <div class="imagen-perfil">
+                <img src="{{miPerfil.avatar_url}}">
+            </div>
+            <div class="datos-personales">
+                <h1>Bianca Casetta</h1>
+                <span>Laboratorio IV - 4A</span>
+                <h3>Juego Propio</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+            <ul class="redes-sociales">
+                <li style="--i:1">
+                    <a target="_blank" href="{{miPerfil.html_url}}"><i class="fa-brands fa-square-github"></i></a>
+                </li>
+                <li style="--i:2">
+                    <a target="_blank" href="https://www.linkedin.com/in/bianca-casetta-38b9b1205/"><i class="fa-brands fa-linkedin"></i></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>

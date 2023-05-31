@@ -1,0 +1,21 @@
+<body>
+	<div class="main">  	
+			<app-login></app-login>
+			<app-registro></app-registro>
+
+			<div class="overlay-container">
+				<div class="overlay">
+					<div class="overlay-left">
+						<h1>¡Volviste!</h1>
+						<p>¿Ya tenés una cuenta?</p>
+						<button id="login" (click)="slideRight()">Iniciá sesión</button>
+					</div>
+					<div class="overlay-right">
+						<h1>Bienvenid@</h1>
+						<p>Si todavía no tenés una cuenta</p>
+						<button id="signup" (click)="slideLeft()">Registrate</button>
+					</div>
+				</div>
+			</div>
+	</div>
+</body>

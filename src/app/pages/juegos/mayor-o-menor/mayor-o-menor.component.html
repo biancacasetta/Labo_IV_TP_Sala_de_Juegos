@@ -1,0 +1,31 @@
+<body>
+    <h1>MAYOR O MENOR</h1>
+    <div class="mayor-menor">
+        <div class="mazo">
+            <div class="carta">
+                <img [src]="rutaImagenCarta">
+            </div>
+            <p class="restantes">CARTAS RESTANTES: {{cartasRestantes}}</p>
+        </div>
+        <div class="juego">
+            <div class="puntaje">
+                <p>Puntos: {{puntos}}</p>
+                <p>{{desaciertos}}/10 fallos</p>
+            </div>
+            <div class="botones">
+                <button (click)="verificarMayorMenor('mayor')">MAYOR</button>
+                <button (click)="verificarMayorMenor('menor')">MENOR</button>
+            </div>
+            
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <img [src]="imagenResultado">
+        <h2>{{resultado}}</h2>
+        <span>Tu puntaje final: {{puntos}}</span>
+        <div class="botones-popup">
+            <button (click)="reiniciarJuego()">Volver a jugar</button>
+            <button routerLink="..">Menú de juegos</button>
+        </div>
+    </div>
+</body>

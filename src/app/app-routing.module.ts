@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AccesoComponent } from './pages/acceso/acceso.component';
+import { BienvenidaComponent } from './pages/bienvenida/bienvenida.component';
+import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: "", component: BienvenidaComponent },
+  { path: "bienvenida", component: BienvenidaComponent },
+  { path: "acceso", component: AccesoComponent },
+  { path: "juegos", loadChildren: () => import('./pages/juegos/juegos.module').then(m => m.JuegosModule) },
+  { path: "quien-soy", component: QuienSoyComponent}
+  //{path: "**"}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

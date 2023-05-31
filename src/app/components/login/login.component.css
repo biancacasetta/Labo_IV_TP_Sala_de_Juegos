@@ -1,0 +1,77 @@
+.login{
+    width: 100%;
+    height: 100%;
+}
+.login label{
+	color: white;
+	margin: 60px;
+}
+
+label{
+	color: #fff;
+	font-size: 2em;
+	justify-content: center;
+	display: flex;
+	margin: 60px;
+}
+input{
+	width: 80%;
+	height: 20px;
+	background: #e0dede;
+	justify-content: center;
+	display: flex;
+	margin: 20px auto;
+	padding: 20px;
+	border: none;
+	outline: none;
+	border-radius: 5px;
+}
+
+button{
+	width: 70%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #573b8a;
+	font-size: 1em;
+	margin-top: 20px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+button:hover{
+	background: #6d44b8;
+}
+
+.accesos-rapidos
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.accesos-rapidos p 
+{
+	color: white;
+	margin: 10px 0;
+}
+
+.accesos-rapidos .botones-accesos
+{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+}
+
+.accesos-rapidos .botones-accesos button
+{
+	margin: 5px;
+	width: 45%;
+}

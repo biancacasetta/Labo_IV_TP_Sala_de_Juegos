@@ -1,0 +1,9 @@
+<div class="signup">
+    <form>
+        <label aria-hidden="true">Registrate</label>
+        <input type="email" name="email" placeholder="Correo electrónico" required [(ngModel)]="email">
+        <input type="password" name="pswd" placeholder="Contraseña" required [(ngModel)]="password">
+        <input type="password" name="pswd" placeholder="Confirmar contraseña" required>
+        <button (click)="registrar()">Registrarse</button>
+    </form>
+</div>
