@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Megrim&family=Play:wght@700&family=Special+Elite&family=Ultra&family=Walter+Turncoat&display=swap');
+
+h1
+{
+	text-align: center;
+	font-family: 'Bungee', cursive;
+	color: white;
+}
+
+body
+{
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("../../../assets/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    flex-direction: column;
+    font-family: 'Bungee', cursive;
+    color: white;
+}
+
+.chat
+{
+    position: relative;
+    min-width: 300px;
+    margin: 5vh 0;
+    width: 40%;
+    height: 60%;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    padding: 5vh;
+    text-align: center;
+}
+
+
+.chat-container {
+    width: 90%;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 70%;
+  }
+
+  .chat-box {
+
+    overflow-y: scroll;
+    height: 80%;
+    background-color: transparent;
+    max-height: 400px;
+  }
+
+  .chat-box::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de desplazamiento */
+  }
+  
+  .chat-box::-webkit-scrollbar-track {
+    background-color: transparent; /* Color de fondo de la pista de la barra de desplazamiento */
+  }
+  
+  .chat-box::-webkit-scrollbar-thumb {
+    background-color: white; /* Color del pulgar de la barra de desplazamiento */
+  }
+  
+  .chat-box::-webkit-scrollbar-thumb:hover {
+    background-color: #6d44b8; /* Color del pulgar de la barra de desplazamiento en el estado de hover */
+  }
+
+
+.user-input {
+padding: 2vh;
+background-color: transparent;
+}
+
+.user-input input[type="text"] {
+width: 80%;
+border: none;
+background-color: #d3cce9;
+border-radius: 15px;
+}
+
+
+.contenedor-mensajes
+{
+  overflow: scroll;
+  padding: 0.3rem;
+  height: 100%;
+}
+
+
+.email-1 {
+    font-size: 2.5vh;
+    color: whitesmoke;
+  }
+  
+  .email-2 {
+    font-size: 2.5vh;
+    color: whitesmoke;
+  }
+
+  .mensaje-enviado {
+    display: block;
+    float: right;
+    margin-right: 1.2vh;
+    background-color: white;
+    color: #573b8a;
+    min-width: 50%;
+    border-radius: 15px;
+    text-align: left;
+  }
+  
+
+  
+  .mensaje-recibido {
+    display: block;
+    float: left;
+    margin-left: 1.2vh;
+    background-color: #6d44b8;
+    color: white;
+    min-width: 50%;
+    border-radius: 15px;
+    text-align: left;
+  }
+
+  .fecha {
+    font-size: 0.7rem;
+    color: orange;
+    text-align: right;
+    font-weight: lighter;
+    float: right;
+    margin-bottom: 1vh;
+    margin-right: 1vh;
+  }
+
+p{
+text-align: center;
+}
+
+
+
+.input-text{
+    flex: 1;
+    height: 4vh;
+    margin-bottom: 0px;
+    color: rgb(12, 11, 11);
+    border-radius: 15px;
+    padding-left: 2vw;
+ }
+
+ .contenedor-input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    background: transparent;
+}
+
+.contenedor-input input{
+    font-size: 1.7vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    
+}
+
+img
+{
+    width: 50px;
+    margin: 1vh;
+    cursor: pointer;
+}
+
+/* Media queries para hacerlo responsive */
+
+@media (max-width: 768px) {
+  .chat-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .chat-container {
+    width: 100%;
+    margin-top: 5vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat-box {
+    height: 70%;
+  }
+}
+
+@media (max-width: 375px) {
+  .chat-container {
+    margin-top: 3vh;
+  }
+}
+
+@media (max-width: 320px) {
+  .chat-container {
+    margin-top: 2vh;
+  }
+}

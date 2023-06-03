@@ -1,8 +1,8 @@
 <body>
 	<div class="main">  	
-			<app-login></app-login>
-			<app-registro></app-registro>
-
+			<app-login (loginExitoso)="mostrarMensajeLogin()"></app-login>			
+			<app-registro (registroExitoso)="mostrarMensajeRegistro()"></app-registro>
+			
 			<div class="overlay-container">
 				<div class="overlay">
 					<div class="overlay-left">
@@ -17,5 +17,9 @@
 					</div>
 				</div>
 			</div>
+	</div>
+	<div class="popup" id="popup">
+		<img [src]="imagenResultado">
+		<h2>{{resultado}}</h2>
 	</div>
 </body>

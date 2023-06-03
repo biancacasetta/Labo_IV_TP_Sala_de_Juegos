@@ -1,15 +1,33 @@
 <div class="login">
-    <form>
+    <form [formGroup]="formLogin" (ngSubmit)="login()">
         <label aria-hidden="true">Iniciá sesión</label>
-        <input type="email" name="email" placeholder="Correo electrónico" required [(ngModel)]="email">
-        <input type="password" name="pswd" placeholder="Contraseña" required [(ngModel)]="password">
-        <button (click)="login()">Iniciar sesión</button>
-        <div class="accesos-rapidos">
-            <p>o accedé como</p>
-            <div class="botones-accesos">
-                <button (click)="insertarUsuario('invitado')">Invitado</button>
-                <button (click)="insertarUsuario('administrador')">Administrador</button>
-            </div>
-        </div>
+        <p
+          *ngIf="
+          formLogin.controls['email'].errors?.['required'] &&
+          (formLogin.controls['email'].touched || emailTouched)">
+          El correo electrónico es requerido
+        </p>
+        <p
+          *ngIf="
+          formLogin.controls['email'].errors?.['pattern'] &&
+          formLogin.controls['email'].touched">
+          El correo electrónico no tiene un formato válido
+        </p>
+        <p
+          *ngIf="
+          formLogin.controls['password'].errors?.['required'] &&
+          (formLogin.controls['password'].touched || passwordTouched)">
+          La contraseña es requerida
+        </p>
+        <input formControlName="email" id="email" type="email" placeholder="Correo electrónico" required >
+        <input formControlName="password" id="password" type="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar sesión</button>
     </form>
+    <div class="accesos-rapidos">
+        <p>o accedé como</p>
+        <div class="botones-accesos">
+            <button (click)="insertarUsuario('invitado@invitado.com', 'invitado')">Invitado</button>
+            <button (click)="insertarUsuario('admin@admin.com', 'administrador')">Administrador</button>
+        </div>
+    </div>
 </div>

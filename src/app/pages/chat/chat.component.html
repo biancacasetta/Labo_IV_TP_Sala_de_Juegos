@@ -1,0 +1,27 @@
+<body>
+    <h1>CHAT</h1>
+    <div class="chat">
+        <div class="chat-container">
+          <div class="chat-box">
+              <p *ngFor="let mensaje of listaDeMensajes" class="p-2 mensajes" [ngClass]="
+              usuario == mensaje.usuario
+                ? 'mensaje-enviado'
+                : 'mensaje-recibido'">
+                <span *ngIf="usuario != mensaje.usuario"
+              [ngClass]="usuario == mensaje.usuario ? 'email-1' : 'email-2'" style="margin-left: 10px;">{{mensaje.usuario}}<br/>
+                </span>
+                <span style="margin-left: 10px">{{ mensaje.contenido }}</span>
+                <br />
+                <span class="fecha">{{ mensaje.fecha }}</span>
+              </p>
+          </div>
+          <form class="user-input">
+            <div class="contenedor-input">
+                <input [(ngModel)]="mensajeNuevo" [ngModelOptions]="{ standalone: true }"
+                 type="text" placeholder="Escribí algo" class="input-text" maxlength="31"/>
+                <img src="/assets/paper-plane.png" (click)=" enviarMensaje()">            
+            </div>
+          </form>
+        </div>
+    </div>
+  </body>

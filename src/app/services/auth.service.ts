@@ -9,21 +9,31 @@ import { FirestoreService } from './firestore.service';
 })
 export class AuthService {
   
+  usuarioIngresado:boolean = false;
+
   constructor(private router:Router,
     private angularFireAuth:AngularFireAuth,
     private firestore:FirestoreService) { }
 
-  login(email:string, password:string)
+  async login(email:string, password:string)
   {
-    this.angularFireAuth.signInWithEmailAndPassword(email, password)
+    return await this.angularFireAuth.signInWithEmailAndPassword(email, password)
       .then(
         response=>{
-          this.router.navigate(['bienvenida']);
           this.firestore.guardarRegistro(email);
-      })
+          this.usuarioIngresado = true;
+          console.log("Login exitoso");
+
+          setTimeout( () => {
+            this.router.navigate(['bienvenida']);
+          }, 3000);
+        })
       .catch(
-        error=>{
-        console.error(error);
+        error =>{
+          if(error.message == "Firebase: Error (auth/wrong-password).")
+          {
+            console.log("Datos incorrectos");
+          }
       });
   }
 
@@ -31,11 +41,13 @@ export class AuthService {
   {
       this.angularFireAuth.signOut();
       this.router.navigate(['acceso']);
+      this.usuarioIngresado = false;
+      console.log("Logout exitoso");
   }
 
-  registrar(email:string, password:string)
+  async registrar(email:string, password:string)
   {
-    this.angularFireAuth.createUserWithEmailAndPassword(email, password)
+    return await this.angularFireAuth.createUserWithEmailAndPassword(email, password)
       .then(
         response => {
           this.login(email, password);
@@ -45,5 +57,9 @@ export class AuthService {
           console.error(error);
         }
       )
+  }
+
+  getLoggedUser() {
+    return this.angularFireAuth.authState;
   }
 }

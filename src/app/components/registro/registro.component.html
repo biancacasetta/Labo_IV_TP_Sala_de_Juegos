@@ -1,9 +1,47 @@
 <div class="signup">
-    <form>
+    <form [formGroup]="formRegistro" (ngSubmit)="registrar()">
         <label aria-hidden="true">Registrate</label>
-        <input type="email" name="email" placeholder="Correo electrónico" required [(ngModel)]="email">
-        <input type="password" name="pswd" placeholder="Contraseña" required [(ngModel)]="password">
-        <input type="password" name="pswd" placeholder="Confirmar contraseña" required>
-        <button (click)="registrar()">Registrarse</button>
+        <p
+          *ngIf="
+          formRegistro.controls['email'].errors?.['required'] &&
+          (formRegistro.controls['email'].touched || emailTouched)">
+          El correo electrónico es requerido
+        </p>
+        <p
+          *ngIf="
+          formRegistro.controls['email'].errors?.['pattern'] &&
+          formRegistro.controls['email'].touched">
+          El correo electrónico no tiene un formato válido
+        </p>
+        <p
+          *ngIf="
+          formRegistro.controls['password'].errors?.['required'] &&
+          (formRegistro.controls['password'].touched || passwordTouched)">
+          La contraseña es requerida
+        </p>
+        <p
+          *ngIf="
+          formRegistro.controls['password'].errors?.['min'] ||
+          (formRegistro.controls['password'].errors?.['required'] &&
+          formRegistro.controls['password'].touched)">
+          La contraseña debe tener mínimo 6 caracteres
+        </p>
+        <p
+          *ngIf="
+          formRegistro.controls['recuperarPassword'].errors?.['required'] &&
+          (formRegistro.controls['recuperarPassword'].touched || confirmPasswordTouched)">
+          Confirmar la contraseña es requerido
+        </p>
+        <p
+          *ngIf="
+          formRegistro.controls['recuperarPassword'].errors?.['min'] ||
+          (formRegistro.controls['recuperarPassword'].errors?.['required'] &&
+          formRegistro.controls['recuperarPassword'].touched)">
+          La contraseña debe tener mínimo 6 caracteres
+        </p>
+        <input formControlName="email" type="email" name="email" placeholder="Correo electrónico" required>
+        <input formControlName="password" type="password" name="pswd" placeholder="Contraseña" required>
+        <input formControlName="recuperarPassword" type="password" name="pswd" placeholder="Confirmar contraseña" required>
+        <button>Registrarse</button>
     </form>
 </div>

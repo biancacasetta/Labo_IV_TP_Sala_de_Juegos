@@ -5,7 +5,7 @@ h1
 	text-align: center;
 	font-family: 'Bungee', cursive;
 	color: white;
-	margin-top: 100px;
+	margin-bottom: 5vh;
 }
 
 body{
@@ -22,63 +22,113 @@ body{
     background-size: 100% 100vh;
     background-attachment: fixed;
     background-position: center;
+	position: fixed;
+	width: 100%;
 }
 
-.ahorcado
+.tablero
 {
+    text-align: center;
+    width: 50%;
+    height: 60%;
 	display: flex;
-	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	flex-wrap: nowrap;
-	width: 80%;
 }
 
-.ahorcado .contenedor-imagen
-{
-	margin: 5vw;
-	padding: 3vw;
-	background-color: rgba(255, 255, 255, 0.25);
-	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-	border-radius: 15px;
-	backdrop-filter: blur(10px);
-}
-
-.imagen-ahorcado
-{
-	width: 20vw;
-}
-
-.ahorcado .juego
+.tablero .juego
 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	flex-wrap: wrap;
+	width: 40%;
 }
 
-.ahorcado .juego .palabra span
+table
 {
-	font-size: 50px;
-	letter-spacing: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(10px);
+    border: 5px solid white;
+	border-radius: 15px;
+	min-width: 500px;
+    width: 500px;
+    height: 500px;
+    font-size: 1.7em;
+	color:white;
+}
+
+table tr
+{
+    border: 1px solid white;
+}
+
+table tr td
+{
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.celda-bloqueada
+{
+    pointer-events: none;
+}
+
+table tr:nth-child(3n)
+{
+    border-bottom: 5px solid white;
+}
+
+table tr td:nth-child(3n)
+{
+    border-right: 5px solid white;
+}
+
+.tablero .juego span
+{
+	font-size: 1.7em;
 	color: white;
+	margin: 2vh;
 }
 
-.ahorcado .juego .botones-letras
+.tablero .juego .botones-numeros
 {
-	max-width: 75%;
+	width: 100%;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+	font-size: 1.5em;
+}
+
+.tablero .juego .reiniciar
+{
+	margin: 2vh;
+	width: 150px;
+	height: 60px;
+	justify-content: center;
+	color: white;
+	background: #573b8a;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+	font-size: 1em;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+	backdrop-filter: blur(10px);
+}
+
+.tablero .juego .reiniciar:hover{
+	background: #6d44b8;
 }
 
 button
 {
-	margin: 10px;
-	width: 40px;
-	height: 40px;
+	margin: 5px;
+	width: 60px;
+	height: 60px;
 	justify-content: center;
 	color: #573b8a;
 	background: rgba(255, 255, 255, 0.75);
@@ -94,6 +144,11 @@ button
 
 button:hover{
 	background: white
+}
+
+button:focus
+{
+    background: white;
 }
 
 .botones-popup button
@@ -150,4 +205,3 @@ button:hover{
 	width: 45%;
 	cursor: pointer;
 }
-

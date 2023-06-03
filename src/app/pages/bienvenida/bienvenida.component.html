@@ -1,5 +1,12 @@
 <body>
-    <div>
-        <h1>BIENVENIDA</h1>
+    <div class="bienvenida">
+        <img src="../../../assets/favicon.ico">
+        <h1>¡HOLA!</h1>
+        <h3>UTN Avellaneda</h3>
+        <h4>Trabajo Práctico 1 - Sala de Juegos</h4>
+        <p *ngIf="!usuarioIngresado">Para poder navegar por el sitio web y usar los juegos, necesitás iniciar sesión o registrarte.</p>
+        <p *ngIf="usuarioIngresado">¡Ya ingresaste! Ahora podés usar los juegos.</p>
+        <button *ngIf="!usuarioIngresado" routerLink="/acceso">Acceder</button>
+        <button *ngIf="usuarioIngresado" routerLink="/juegos">Menú de Juegos</button>
     </div>
 </body>

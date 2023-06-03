@@ -4,7 +4,7 @@
 }
 .login label{
 	color: white;
-	margin: 60px;
+	margin: 60px 60px 0 60px;
 }
 
 label{
@@ -12,7 +12,6 @@ label{
 	font-size: 2em;
 	justify-content: center;
 	display: flex;
-	margin: 60px;
 }
 input{
 	width: 80%;
@@ -58,6 +57,7 @@ button:hover{
 .accesos-rapidos p 
 {
 	color: white;
+	background-color: transparent;
 	margin: 10px 0;
 }
 
@@ -75,3 +75,11 @@ button:hover{
 	margin: 5px;
 	width: 45%;
 }
+
+p
+{
+	text-align: center;
+	color: white;
+	background-color: red;
+}
+

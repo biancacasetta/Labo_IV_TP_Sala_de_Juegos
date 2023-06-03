@@ -3,7 +3,8 @@
 body
 {
     min-height: 100vh;
-    background-image: url("https://images2.alphacoders.com/118/1184993.jpg");
+    width: 100%;
+    background-image: url("../../../assets/fondo.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100vh;
     background-attachment: fixed;
@@ -15,10 +16,54 @@ body
 	align-items: center;
     flex-wrap: nowrap;
     font-family: 'Bungee', cursive;
-    width: 100%;
+    color: white;
 }
 
-h1
+.bienvenida
 {
-    color: white;
+    position: relative;
+    min-width: 300px;
+    margin: 5vh 0;
+    width: 40%;
+    height: 60%;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    padding: 5vh;
+    text-align: center;
+}
+
+.bienvenida p
+{
+    margin-top: 2vh;
+}
+
+button{
+    min-width: 100px;
+	width: 30%;
+	height: 40px;
+	margin: 10px auto;
+	justify-content: center;
+	display: block;
+	color: #fff;
+	background: #573b8a;
+	font-size: 1em;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+	transition: .2s ease-in;
+	cursor: pointer;
+}
+button:hover{
+	background: #6d44b8;
+}
+
+.bienvenida img
+{
+    width: 200px;
 }

@@ -31,7 +31,6 @@ export class AhorcadoComponent {
   {
     this.generarBotonesLetras();
     this.palabraSecreta = this.generarPalabraRandom();
-    console.log(this.palabraSecreta);
     this.generarGuionesPalabra(this.palabraSecreta);
     this.letrasSeparadas = this.palabraSecreta.split("");
     this.popup = document.getElementById("popup");
@@ -109,6 +108,8 @@ export class AhorcadoComponent {
     this.guionesBajos = "";
     this.palabraSecreta = this.generarPalabraRandom();
     this.generarGuionesPalabra(this.palabraSecreta);
+    this.letrasSeparadas = this.palabraSecreta.split("");
+    console.log(this.palabraSecreta);
   }
 
 }

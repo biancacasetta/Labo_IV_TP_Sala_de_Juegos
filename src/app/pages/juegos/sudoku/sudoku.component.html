@@ -1,0 +1,28 @@
+<body>
+    <h1>SUDOKU</h1>
+
+    <div class="tablero">
+        <table>
+            <tr *ngFor="let fila of matrizSudoku; let i=index">
+                <td (click)="insertarNumeroEnMatriz(i, j)" *ngFor="let celda of fila; let j=index">{{celda === '-' ? '':celda}}</td>
+            </tr>
+        </table>
+        <div class="juego">
+            <span>{{elapsedTime}}</span>
+            <div class="botones-numeros">
+                <button #botonNumero (click)="obtenerBoton(botonNumero)" *ngFor="let numero of numeros">{{numero}}</button>
+                <button #borrar (click)="obtenerBoton(borrar)"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <button class="reiniciar" (click)="reiniciarJuego()">REINICIAR JUEGO</button>
+        </div>
+    </div>
+    <div class="popup" id="popup">
+        <img [src]="imagenResultado">
+        <h2>{{resultado}}</h2>
+        <span>{{tiempoFinal}}</span>
+        <div class="botones-popup">
+            <button (click)="reiniciarJuego()">Volver a jugar</button>
+            <button routerLink="..">Menú de juegos</button>
+        </div>
+    </div>
+</body>

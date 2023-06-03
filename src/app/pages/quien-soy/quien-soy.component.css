@@ -3,7 +3,7 @@
 body
 {
     min-height: 100vh;
-    background-image: url("https://images2.alphacoders.com/118/1184993.jpg");
+    background-image: url("../../../assets/fondo.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100vh;
     background-attachment: fixed;
@@ -22,6 +22,8 @@ body
 .quien-soy
 {
     position: relative;
+    min-width: 300px;
+    margin: 5vh 0;
     width: 30%;
     height: 60%;
     background-color: rgba(255, 255, 255, 0.2);
@@ -101,7 +103,7 @@ p
 .quien-soy .contenido .redes-sociales
 {
     position: absolute;
-    bottom: 30px;
+    bottom: 10px;
     display: flex;
     padding: 0;
 }
@@ -131,4 +133,14 @@ p
 .quien-soy .contenido:hover
 {
     transform: translateY(-20px);
+}
+
+.link-wiki
+{
+    color: whitesmoke;
+}
+
+.link-wiki:hover
+{
+    color: #573b8a;
 }

@@ -17,7 +17,7 @@ body{
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Bungee', cursive;
-	background-image: url("https://images2.alphacoders.com/118/1184993.jpg");
+	background-image: url("../../../../assets/fondo.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100vh;
     background-attachment: fixed;
@@ -33,7 +33,7 @@ body{
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	width: 80%;
 }
 

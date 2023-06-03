@@ -3,7 +3,7 @@
 body
 {
     min-height: 100vh;
-    background-image: url("https://images2.alphacoders.com/118/1184993.jpg");
+    background-image: url("../../../assets/fondo.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100vh;
     background-attachment: fixed;

@@ -5,6 +5,7 @@ import { MenuJuegosComponent } from '../menu-juegos/menu-juegos.component';
 import { AhorcadoComponent } from './ahorcado/ahorcado.component';
 import { MayorOMenorComponent } from './mayor-o-menor/mayor-o-menor.component';
 import { PreguntadosComponent } from './preguntados/preguntados.component';
+import { SudokuComponent } from './sudoku/sudoku.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { PreguntadosComponent } from './preguntados/preguntados.component';
     MenuJuegosComponent,
     AhorcadoComponent,
     MayorOMenorComponent,
-    PreguntadosComponent
+    PreguntadosComponent,
+    SudokuComponent
   ],
   imports: [
     CommonModule,

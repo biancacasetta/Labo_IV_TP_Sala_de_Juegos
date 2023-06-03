@@ -16,6 +16,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { BienvenidaComponent } from './pages/bienvenida/bienvenida.component';
 import { HttpClientModule } from '@angular/common/http';
 import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { QuienSoyComponent } from './pages/quien-soy/quien-soy.component';
     RegistroComponent,
     LoginComponent,
     BienvenidaComponent,
-    QuienSoyComponent
+    QuienSoyComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

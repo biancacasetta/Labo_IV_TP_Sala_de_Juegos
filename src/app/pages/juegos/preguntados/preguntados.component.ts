@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { delay } from 'rxjs';
+import { PokemonApiService } from 'src/app/services/pokemon-api.service';
 import VanillaTilt from "vanilla-tilt";
 
 @Component({
@@ -19,6 +20,8 @@ export class PreguntadosComponent {
   desaciertos = 0;
   popup: any;
 
+  constructor(private renderer: Renderer2, private pokemonApi: PokemonApiService) {}
+
   ngOnInit()
   {
     this.pokemonCard = document.querySelector(".pokemon");
@@ -28,22 +31,9 @@ export class PreguntadosComponent {
     
   async ngAfterViewInit()
   {
-    await this.obtenerPokemon(this.generarNumeroRandom(1, 151));
+    this.pokemon = await this.pokemonApi.obtenerPokemon(this.generarNumeroRandom(1, 151));
     this.generarPokemonesRandom();
     this.popup = document.getElementById("popup");
-  }
-
-  async obtenerPokemon(id:number)
-  {
-    try
-    {
-      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-      this.pokemon = await res.json();
-    }
-    catch(error)
-    { 
-      console.log(error);
-    }
   }
 
   generarNumeroRandom(minimo:number, maximo:number)
@@ -62,7 +52,7 @@ export class PreguntadosComponent {
     for (let i = 0; i < 3; i++)
     {
       let idRandom = this.generarNumeroRandom(1, 151);
-      await this.obtenerPokemon(idRandom);
+      this.pokemon = await this.pokemonApi.obtenerPokemon(idRandom);
 
       if(!pokemonesAux.includes(this.pokemon.name))
       {
@@ -88,7 +78,6 @@ export class PreguntadosComponent {
   {
     this.contenedorTrivia.classList.remove("slide-out-left");
     this.contenedorTrivia.classList.remove("slide-in-right");
-    this.pokemonCard.classList.remove("blur");
 
     if(pokemon == this.pokemonMostrado)
     {
@@ -105,12 +94,10 @@ export class PreguntadosComponent {
 
     delay(700);
 
-    await this.obtenerPokemon(this.generarNumeroRandom(1, 151));
+    this.pokemon = await this.pokemonApi.obtenerPokemon(this.generarNumeroRandom(1, 151));
     await this.generarPokemonesRandom();
 
-    this.pokemonCard.classList.add("blur");
     this.contenedorTrivia.classList.add("slide-in-right");
-    
   }
 
   verificarFinalizacionJuego()
@@ -130,7 +117,7 @@ export class PreguntadosComponent {
     this.desaciertos = 0;
     this.puntos = 0;
     const numeroRandom = this.generarNumeroRandom(1, 151); 
-    await  this.obtenerPokemon(numeroRandom); 
+    this.pokemon = await this.pokemonApi.obtenerPokemon(numeroRandom); 
     this.generarPokemonesRandom();
   }
 
