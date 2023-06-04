@@ -1,4 +1,6 @@
 import { Component, Renderer2 } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import { getSudoku } from 'sudoku-gen';
 
 @Component({
@@ -19,12 +21,13 @@ export class SudokuComponent {
   imagenResultado:string = "";
   popup:any;
   startTime?: Date;
-  elapsedTime?: string;
+  elapsedTime: string = "";
   timerId: any;
   isPaused: boolean = false;
   tiempoFinal:string = "";
+  usuario:any;
 
-  constructor(private renderer:Renderer2) {}
+  constructor(private auth:AuthService, private firestore:FirestoreService) {}
   
   ngOnInit()
   {
@@ -35,6 +38,10 @@ export class SudokuComponent {
     console.log(this.matrizSolucion);
     this.startTime = new Date();
     this.startTimer();
+    this.auth.getLoggedUser().subscribe((usuario)=>{
+      //@ts-ignore
+      this.usuario = usuario.email.split('@')[0];
+    });
   }
 
   ngAfterViewInit()
@@ -119,6 +126,7 @@ export class SudokuComponent {
         {
           this.popup.classList.add("open-popup");
         }
+        this.firestore.guardarResultadoSudoku(this.usuario, this.elapsedTime);
       }
       else
       {

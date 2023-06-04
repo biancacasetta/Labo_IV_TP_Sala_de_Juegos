@@ -1,5 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
 import { delay } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import { PokemonApiService } from 'src/app/services/pokemon-api.service';
 import VanillaTilt from "vanilla-tilt";
 
@@ -19,14 +21,20 @@ export class PreguntadosComponent {
   puntos = 0;
   desaciertos = 0;
   popup: any;
+  usuario:any;
 
-  constructor(private renderer: Renderer2, private pokemonApi: PokemonApiService) {}
+  constructor(private renderer: Renderer2, private pokemonApi: PokemonApiService,
+    private auth:AuthService, private firestore:FirestoreService) {}
 
   ngOnInit()
   {
     this.pokemonCard = document.querySelector(".pokemon");
     VanillaTilt.init(this.pokemonCard, { max: 20, speed: 400, scale: 1.05});
     this.contenedorTrivia = document.querySelector(".preguntados");
+    this.auth.getLoggedUser().subscribe((usuario)=>{
+      //@ts-ignore
+      this.usuario = usuario.email.split('@')[0];
+    });
   }
     
   async ngAfterViewInit()
@@ -102,12 +110,13 @@ export class PreguntadosComponent {
 
   verificarFinalizacionJuego()
   {
-    if(this.desaciertos == 10)
+    if(this.desaciertos == 5)
     {
         if(this.popup)
         {
           this.popup.classList.add("open-popup");
         }
+        this.firestore.guardarResultadoPreguntados(this.usuario, this.puntos);
     }
   }
 

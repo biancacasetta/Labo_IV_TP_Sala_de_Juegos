@@ -1,0 +1,237 @@
+<body>
+    <h1>ENCUESTA</h1>
+    <div class="encuesta-container">
+        <form
+          [formGroup]="formEncuesta"
+          class="container contenedor-form"
+          (ngSubmit)="enviarEncuesta()"
+        >
+          <div class="row d-flex flex-wrap">
+            <!-- INPUT NOMBRE -->
+            <div class="col-sm mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input
+                formControlName="nombre"
+                type="text"
+                class="form-control"
+                id="nombre"
+                placeholder="Nombre"
+              />
+              <small
+                *ngIf="
+                formEncuesta.controls['nombre'].errors?.['required'] &&
+                formEncuesta.controls['nombre'].touched
+                          "
+              >
+                El Nombre es requerido
+              </small>
+            </div>
+            <!-- INPUT APELLIDO -->
+            <div class="col-sm mb-3">
+              <label for="apellido" class="form-label">Apellido</label>
+              <input
+                formControlName="apellido"
+                type="text"
+                class="form-control"
+                id="apellido"
+                placeholder="Apellido"
+              />
+              <small
+                *ngIf="
+                formEncuesta.controls['apellido'].errors?.['required'] &&
+                formEncuesta.controls['apellido'].touched
+                          "
+              >
+                El Apellido es requerido
+              </small>
+            </div>
+          </div>
+          <div class="row">
+            <!-- INPUT EDAD -->
+            <div class="col-sm mb-3">
+              <label for="edad" class="form-label">Edad</label>
+              <input
+                formControlName="edad"
+                type="number"
+                class="form-control"
+                id="edad"
+                placeholder="Edad"
+                min="18"
+                max="99"
+              />
+              <small
+                *ngIf="
+                formEncuesta.controls['edad'].errors?.['required'] &&
+                formEncuesta.controls['edad'].touched
+                      "
+              >
+                La Edad es requerida
+              </small>
+              <small
+                *ngIf="
+                formEncuesta.controls['edad'].errors?.['min'] ||
+                        (formEncuesta.controls['edad'].errors?.['max'] &&
+                        formEncuesta.controls['edad'].touched)
+                      "
+              >
+                La Edad debe ser de 18 a 99 años
+              </small>
+            </div>
+            <!-- INPUT TELÉFONO -->
+            <div class="col-sm mb-3">
+              <label for="telefono" class="form-label">Teléfono</label>
+              <input
+                formControlName="telefono"
+                type="text"
+                class="form-control"
+                id="telefono"
+                placeholder="Teléfono"
+              />
+              <small
+                *ngIf="
+                formEncuesta.controls['telefono'].errors?.['required'] &&
+                formEncuesta.controls['telefono'].touched
+                      "
+              >
+                El teléfono es requerido
+              </small>
+              <small
+                *ngIf="
+                        (formEncuesta.controls['telefono'].errors?.['maxlength'] &&
+                        formEncuesta.controls['telefono'].touched)
+                      "
+              >
+                El teléfono debe tener 10 digitos o menos
+              </small>
+              <small
+                *ngIf="
+                        (formEncuesta.controls['telefono'].errors?.['pattern'] &&
+                        formEncuesta.controls['telefono'].touched)
+                      "
+              >
+                Se deben ingresar solo números
+              </small>
+            </div>
+          </div>
+          <!-- PREGUNTAS -->
+          <hr />
+          <div class="mb-3 row d-flex flex-wrap">
+              <!-- INPUT JUEGO FAVORITO -->
+              <div class="col-sm mb-3">
+                <label class="form-label">¿Tu juego favorito?</label>
+                <div class="form-check">
+                  <input
+                    formControlName="juegoFavorito"
+                    class="form-check-input"
+                    type="radio"
+                    name="juegoFavorito"
+                    id="opcion1"
+                    value="ahorcado"
+                    checked
+                    required
+                  />
+                  <label class="form-check-label" for="opcion1"> Ahorcado </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    formControlName="juegoFavorito"
+                    class="form-check-input"
+                    type="radio"
+                    name="juegoFavorito"
+                    id="opcion2"
+                    value="mayorMenor"
+                  />
+                  <label class="form-check-label" for="opcion2"> Mayor o Menor </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    formControlName="juegoFavorito"
+                    class="form-check-input"
+                    type="radio"
+                    name="juegoFavorito"
+                    id="opcion3"
+                    value="preguntados"
+                  />
+                  <label class="form-check-label" for="opcion3"> Preguntados </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    formControlName="juegoFavorito"
+                    class="form-check-input"
+                    type="radio"
+                    name="juegoFavorito"
+                    id="opcion4"
+                    value="juegoDeLaVida"
+                  />
+                  <label class="form-check-label" for="opcion4">
+                    Sudoku
+                  </label>
+                </div>
+              </div>
+            <!-- INPUT JUEGO NUEVO -->
+            <div class="col-sm mb-3">
+              <label class="form-label">¿Qué juego nuevo te gustaría?</label>
+              <div class="form-check">
+                <input
+                  formControlName="nuevoJuegoViborita"
+                  class="form-check-input"
+                  type="checkbox"
+                  value="viborita"
+                  id="viborita"
+                />
+                <label class="form-check-label" for="viborita"> Viborita </label>
+              </div>
+              <div class="form-check">
+                <input
+                  formControlName="nuevoJuegoBuscaminas"
+                  class="form-check-input"
+                  type="checkbox"
+                  value="buscaminas"
+                  id="buscaminas"
+                />
+                <label class="form-check-label" for="buscaminas"> Buscaminas </label>
+              </div>
+              <div class="form-check">
+                <input
+                  formControlName="nuevoJuegoPinball"
+                  class="form-check-input"
+                  type="checkbox"
+                  value="pinball"
+                  id="pinball"
+                />
+                <label class="form-check-label" for="pinball"> Pinball </label>
+              </div>
+              <small *ngIf="validNewGame" class="campo-requerido">
+                {{ validNewGame }}</small
+              >
+            </div>
+            <!-- INPUT RECOMENDAR PAGINA -->
+            <div class="col-sm mb-3">
+              <label class="form-label">¿En qué dispositivo navegaste?</label>
+              <select
+                class="form-select"
+                id="recomendacion"
+                formControlName="recomiendaPagina">
+                <option value="" selected>Seleccione una opción</option>
+                <option value="desktop">Computadora de escritorio</option>
+                <option value="laptop">Computadora portátil</option>
+                <option value="tablet">Tablet</option>
+                <option value="celular">Celular</option>
+              </select>
+              <small
+                *ngIf="
+                formEncuesta.controls['recomiendaPagina'].errors?.['required'] &&
+                formEncuesta.controls['recomiendaPagina'].touched">
+                Respesta requerida
+              </small>
+            </div>
+          </div>
+          <hr />
+          <button type="submit" class="btn-enviar">Enviar encuesta</button>
+        </form>
+      </div>
+      <div class="popup" id="popup">
+        <img [src]="imagenResultado">
+        <h2>{{resultado}}</h2>
+    </div>
+</body>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-ahorcado',
@@ -15,6 +17,7 @@ export class AhorcadoComponent {
   resultado = "";
   imagenResultado = "";
   popup:any;
+  usuario:any;
   
   palabras: string[] = [
     "COMPUTADORA",
@@ -25,7 +28,8 @@ export class AhorcadoComponent {
     "MONITOR"
   ]
 
-  constructor() {}
+  constructor(private firestore:FirestoreService,
+    private auth:AuthService) {}
 
   ngOnInit()
   {
@@ -34,6 +38,10 @@ export class AhorcadoComponent {
     this.generarGuionesPalabra(this.palabraSecreta);
     this.letrasSeparadas = this.palabraSecreta.split("");
     this.popup = document.getElementById("popup");
+    this.auth.getLoggedUser().subscribe((usuario)=>{
+      //@ts-ignore
+      this.usuario = usuario.email.split('@')[0];
+    })
   }
 
   generarBotonesLetras()
@@ -81,6 +89,7 @@ export class AhorcadoComponent {
         this.resultado = "¡GANASTE!";
         this.imagenResultado = "../../../../assets/trophy.png";
         this.popup?.classList.add("open-popup");
+        this.firestore.guardarResultadoAhorcado(this.usuario, true);
       }
     }
     else
@@ -95,6 +104,7 @@ export class AhorcadoComponent {
         {
           this.popup.classList.add("open-popup");
         }
+        this.firestore.guardarResultadoAhorcado(this.usuario, false);
         //let botones = document.getElementById("botones");
         //botones?.setAttribute("disabled", "");
       }

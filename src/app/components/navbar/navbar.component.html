@@ -13,6 +13,12 @@
         <li class="nav-item" *ngIf="auth.usuarioIngresado">
           <a class="nav-link" routerLink="chat">Chat</a>
         </li>
+        <li class="nav-item" *ngIf="auth.usuarioIngresado">
+          <a class="nav-link" routerLink="encuesta">Encuesta</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.usuarioIngresado">
+          <a class="nav-link" routerLink="resultados-juegos">Listado de resultados</a>
+        </li>
         <li class="nav-item" *ngIf="!auth.usuarioIngresado">
           <a class="nav-link" routerLink="acceso">Acceder</a>
         </li>

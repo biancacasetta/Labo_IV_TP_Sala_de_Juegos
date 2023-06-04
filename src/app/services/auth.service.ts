@@ -26,7 +26,7 @@ export class AuthService {
 
           setTimeout( () => {
             this.router.navigate(['bienvenida']);
-          }, 3000);
+          }, 2000);
         })
       .catch(
         error =>{

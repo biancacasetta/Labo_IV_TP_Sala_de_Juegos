@@ -1,4 +1,6 @@
 import { Component, ElementRef } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { FirestoreService } from 'src/app/services/firestore.service';
 import VanillaTilt from "vanilla-tilt";
 
 @Component({
@@ -20,8 +22,9 @@ export class MayorOMenorComponent {
   rutaImagenCarta = "";
   resultado = "";
   imagenResultado = "";
+  usuario:any;
 
-  constructor(private elementRef: ElementRef) {}
+  constructor(private elementRef: ElementRef, private firestore:FirestoreService, private auth:AuthService) {}
   
   async ngOnInit()
   {
@@ -30,6 +33,10 @@ export class MayorOMenorComponent {
     VanillaTilt.init(
       this.contenedorCarta, { max: 20, speed: 400, scale: 1.05});
     this.cartasRestantes = this.cartaRandom.remaining;
+    this.auth.getLoggedUser().subscribe((usuario)=>{
+      //@ts-ignore
+      this.usuario = usuario.email.split('@')[0];
+    });
   }
 
   ngAfterViewInit()
@@ -150,6 +157,7 @@ export class MayorOMenorComponent {
         {
           this.popup.classList.add("open-popup");
         }
+        this.firestore.guardarResultadoMayorOMenor(this.usuario, this.puntos);
     }
 
     if(this.cartaRandom.remaining == 0)
@@ -160,6 +168,7 @@ export class MayorOMenorComponent {
         {
           this.popup.classList.add("open-popup");
         }
+        this.firestore.guardarResultadoMayorOMenor(this.usuario, this.puntos);
     }
   }
 
